@@ -9,28 +9,26 @@ type Logistica interface {
 	AsignarTransporte() product.ITransporte
 }
 
-type LogisticaMaritima struct {
-
+type logisticaMaritima struct {
 }
 
-type LogisticaArea struct {
-
+type logisticaArea struct {
 }
 
-func (lm *LogisticaMaritima) AsignarTransporte() product.ITransporte{
+func (lm *logisticaMaritima) AsignarTransporte() product.ITransporte {
 	return &product.Barco{}
 }
 
-func (la *LogisticaArea ) AsignarTransporte() product.ITransporte{
+func (la *logisticaArea) AsignarTransporte() product.ITransporte {
 	return &product.Avion{}
 }
 
-func GetPlatform(s string) (Logistica, error){
+func GetPlatform(s string) (Logistica, error) {
 	switch s {
 	case "maritima":
-		return &LogisticaMaritima{}, nil
+		return &logisticaMaritima{}, nil
 	case "aerea":
-		return &LogisticaArea{}, nil
+		return &logisticaArea{}, nil
 	default:
 		return nil, errors.New("Tipo de plataforma invalida")
 	}
