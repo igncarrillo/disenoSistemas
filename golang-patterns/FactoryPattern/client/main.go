@@ -13,6 +13,6 @@ func main() {
 		fmt.Println(err)
 		os.Exit(1)
 	}
-	p.RealizarEnvio()
+	p.AsignarTransporte().RealizarEnvio()
 
 }
