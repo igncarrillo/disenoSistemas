@@ -1,12 +1,12 @@
 public abstract class Logistica {
     public abstract ITransporte asignarTransporte();
 
-    public static Logistica getConfig(String s){
+    public static ITransporte getConfig(String s){
         switch (s){
             case "aerea":
-                return new LogisticaAerea();
+                return new LogisticaAerea().asignarTransporte();
             case "maritima":
-                return new LogisticaMaritima();
+                return new LogisticaMaritima().asignarTransporte();
             default:
                 throw new RuntimeException("Tipo de plataforma invalida");
         }

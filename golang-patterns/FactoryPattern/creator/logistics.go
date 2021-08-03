@@ -23,12 +23,14 @@ func (la *logisticaArea) AsignarTransporte() product.ITransporte {
 	return &product.Avion{}
 }
 
-func GetPlatform(s string) (Logistica, error) {
+func GetPlatform(s string) (product.ITransporte, error) {
 	switch s {
 	case "maritima":
-		return &logisticaMaritima{}, nil
+		m := &logisticaMaritima{}
+		return m.AsignarTransporte(), nil
 	case "aerea":
-		return &logisticaArea{}, nil
+		a:= &logisticaArea{}
+		return a.AsignarTransporte(), nil
 	default:
 		return nil, errors.New("Tipo de plataforma invalida")
 	}
